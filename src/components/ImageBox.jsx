@@ -1,4 +1,3 @@
-// src/components/ImageBox.jsx
 import React from 'react';
 
 const ImageBox = ({ title, imageSrc }) => {
@@ -8,8 +7,8 @@ const ImageBox = ({ title, imageSrc }) => {
       {imageSrc ? (
         <img src={imageSrc} alt={title} />
       ) : (
-        <div style={{ height: '200px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#999' }}>
-          이미지가 없습니다.
+        <div className="empty-state">
+          <p>이미지가 없습니다.</p>
         </div>
       )}
     </div>
