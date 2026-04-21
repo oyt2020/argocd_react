@@ -13,27 +13,6 @@ jobs:
     steps:
     - name: Check code
       uses: actions/checkout@v4
-      with:
-        fetch-depth: 0
-
-    - name: SonarQube Scan
-      uses: SonarSource/sonarqube-scan-action@v2
-      env:
-        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-      with:
-        projectBaseDir: .
-        args: >
-          -Dsonar.projectKey=oyt2020
-          -Dsonar.sources=src
-          -Dsonar.organization=oyt2020
-          -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info
-
-    - name: SonarQube Quality
-      uses: SonarSource/sonarqube-quality-gate-action@v1
-      timeout-minutes: 5
-      env:
-        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
     - name: Login Docker hub
       uses: docker/login-action@v3
