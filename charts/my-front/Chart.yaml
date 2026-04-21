@@ -1,0 +1,8 @@
+apiVersion: v3
+name: my-front
+description: A Helm Chart for Yolo frontend app
+type: application
+
+version: 0.1.0
+
+appVersion: "1.2"

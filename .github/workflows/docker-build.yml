@@ -4,7 +4,7 @@ on:
   push:
     branches: [ "main" ]
     paths-ignore:
-      - 'k8s/**'
+      - 'charts/**'
 
 jobs:
   build:
@@ -29,5 +29,15 @@ jobs:
         file: ./Dockerfile
         push: true
         tags: |
-          ${{ secrets.DOCKERHUB_USERNAME }}/yolo-front:1.2
+          ${{ secrets.DOCKERHUB_USERNAME }}/yolo-front:1.2.${{ github.run_number }}
+
+    - name: Update Helm Values
+      run: |
+        sed -i "s/tag: .*/tag: \"1.2.${{ github.run_number }}\"/g" charts/my-front/values.yaml
+        
+        git config --global user.email "action@github.com"
+        git config --global user.name "GitHub Action"
+        git add charts/my-front/values.yaml
+        git commit -m "update image tag to ${{ github.run_number }} [skip ci]"
+        git push
 

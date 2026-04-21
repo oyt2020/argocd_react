@@ -1,0 +1,5 @@
+image:
+  repository: topawa/yolo-front
+  tag: "1.2"
+  pullPolicy: IfNotPresent
+

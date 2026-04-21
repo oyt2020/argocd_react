@@ -56,6 +56,7 @@ function App() {
   return (
     <div className="container">
       <h1>YOLO11 Segmentation 서비스</h1>
+      <h3>1.2.x</h3>
 
       {/* 업로드 섹션 */}
       <div className="upload-section">
