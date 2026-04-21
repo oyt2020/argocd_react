@@ -24,7 +24,7 @@ jobs:
       with:
         projectBaseDir: .
         args: >
-          -Dsonar.projectKey=my-react-front
+          -Dsonar.projectKey=oyt2020
           -Dsonar.sources=src
           -Dsonar.organization=oyt2020
           -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info
