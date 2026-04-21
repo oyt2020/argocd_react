@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: external-egress
+  namespace: front
+spec:
+  podSelector:
+    matchLabels:
+      app: react
+  policyTypes:
+    - Egress
+  egress:
+    - to:
+      - ipBlock:
+          cidr: 172.31.0.0/16
+      - ipBlock:
+          cidr: 192.168.0.0/16

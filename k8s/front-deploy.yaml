@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: react
+  name: yolo-front
+  namespace: front
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: react
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: react
+    spec:
+      containers:
+      - image: topawa/yolo-front:1.1
+        name: react-vite
+        resources: {}
+        ports:
+        - containerPort: 80
+status: {}
