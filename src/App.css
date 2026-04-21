@@ -1,0 +1,58 @@
+/* src/App.css */
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.upload-section {
+  margin-bottom: 30px;
+  padding: 20px;
+  border: 2px dashed #ccc;
+  border-radius: 10px;
+}
+
+.image-display-area {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.image-box {
+  flex: 1;
+  min-width: 300px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+  background-color: #f9f9f9;
+}
+
+.image-box img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+button:disabled {
+  background-color: #ccc;
+}
+
+.loading-text {
+  color: #007bff;
+  font-weight: bold;
+}
