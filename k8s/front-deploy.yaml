@@ -17,7 +17,7 @@ spec:
         app: react
     spec:
       containers:
-      - image: topawa/yolo-front:1.1
+      - image: topawa/yolo-front:1.2
         name: react-vite
         resources: {}
         ports:
