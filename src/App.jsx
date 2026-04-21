@@ -91,7 +91,7 @@ function App() {
   return (
     <div className="container">
       <h1>YOLO11 Segmentation 서비스</h1>
-      <h3>1.2.k</h3>
+      <h3>1.2.p</h3>
 
       {/* 숨겨진 파일 입력 창 */}
       <input
