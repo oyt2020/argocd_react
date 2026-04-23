@@ -21,5 +21,5 @@ spec:
         name: react-vite
         resources: {}
         ports:
-        - containerPort: 80
+        - containerPort: 8080
 status: {}
