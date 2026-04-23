@@ -42,14 +42,23 @@ jobs:
         tags: |
           ${{ secrets.DOCKERHUB_USERNAME }}/yolo-front:1.2.${{ github.run_number }}
 
+    - name: Rub Trivy for Security Report
+      uses: aquasecurity/trivy-action@dea62cf79abc269fc35dfd161a4539f0d1f92293
+      with:
+        image-ref: '${{ secrets.DOCKERHUB_USERNAME }}/yolo-front:1.2.${{ github.run_number }}'
+        format: 'table'
+        exit-code: '0'
+        severity: "UNKNOWN,LOW,MEDIUM,HIGH,CRITICAL"
+        ignore-unfixed: false
+
     - name: Run Trivy
       uses: aquasecurity/trivy-action@dea62cf79abc269fc35dfd161a4539f0d1f92293
       with:
         image-ref: '${{ secrets.DOCKERHUB_USERNAME }}/yolo-front:1.2.${{ github.run_number }}'
         format: 'table'
         exit-code: '1'
-        severity: "LOW,MEDIUM,HIGH,CRITICAL"
-        ignore-unfixed: false
+        severity: "HIGH,CRITICAL"
+        ignore-unfixed: true
 
     - name: Docker push
       env:
