@@ -46,7 +46,7 @@ jobs:
       uses: aquasecurity/trivy-action@dea62cf79abc269fc35dfd161a4539f0d1f92293
       with:
         image-ref: '${{ secrets.DOCKERHUB_USERNAME }}/yolo-front:1.2.${{ github.run_number }}'
-        format: 'json'
+        format: 'table'
         exit-code: '1'
         severity: "LOW,MEDIUM,HIGH,CRITICAL"
         ignore-unfixed: false
