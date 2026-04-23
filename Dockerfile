@@ -38,6 +38,8 @@ RUN npm run build
 # 2단계: Nginx + VTS 모듈 컴파일 및 실행 환경 구성
 FROM nginx:1.25.3-alpine as production-stage
 
+ARG NGINX_VERSION=1.25.3
+
 # 빌드에 필요한 도구 설치
 RUN apk add --no-cache --virtual .build-deps \
     gcc \
