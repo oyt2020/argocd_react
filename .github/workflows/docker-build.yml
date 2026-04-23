@@ -48,7 +48,7 @@ jobs:
         image-ref: '${{ secrets.DOCKERHUB_USERNAME }}/yolo-front:1.2.${{ github.run_number }}'
         format: 'json'
         exit-code: '1'
-        severity: "LOW,MEDIUM,HIGH,CRITICA"
+        severity: "LOW,MEDIUM,HIGH,CRITICAL"
         ignore-unfixed: false
 
     - name: Docker push
