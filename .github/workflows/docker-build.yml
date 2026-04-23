@@ -46,10 +46,10 @@ jobs:
       uses: aquasecurity/trivy-action@dea62cf79abc269fc35dfd161a4539f0d1f92293
       with:
         image-ref: '${{ secrets.DOCKERHUB_USERNAME }}/yolo-front:1.2.${{ github.run_number }}'
-        format: 'table'
+        format: 'json'
         exit-code: '1'
-        severity: "CRITICAL,HIGH"
-        ignore-unfixed: true
+        severity: "LOW,MEDIUM,HIGH,CRITICA"
+        ignore-unfixed: false
 
     - name: Docker push
       env:
