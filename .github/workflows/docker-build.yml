@@ -67,7 +67,7 @@ jobs:
         docker push $docker_user/yolo-front:1.2.${{ github.run_number }}
 
     - name: Slack Notification
-      uses: rtCamp/action-slack-notify@v2
+      uses: rtCamp/action-slack-notify@485a539eb86d6bb1d6248da93b74304899566374
       if: always()
       env:
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
