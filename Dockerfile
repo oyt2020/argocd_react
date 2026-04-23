@@ -15,6 +15,14 @@ COPY --from=build-stage /app/dist /usr/share/nginx/html
 
 COPY default.conf /etc/nginx/conf.d/default.conf
 
+RUN touch /var/run/nginx.pid && \
+    chown -R nginx:nginx /var/run/nginx.pid && \
+    chown -R nginx:nginx /var/cache/nginx && \
+    chown -R nginx:nginx /var/log/nginx && \
+    chown -R nginx:nginx /etc/nginx/conf.d
+
+USER nginx
+
 # Nginx 포트 80 노출
-EXPOSE 80
+EXPOSE 8000
 CMD ["nginx", "-g", "daemon off;"]
