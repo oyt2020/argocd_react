@@ -65,7 +65,21 @@ jobs:
         docker_user: ${{ secrets.DOCKERHUB_USERNAME }}
       run: |
         docker push $docker_user/yolo-front:1.2.${{ github.run_number }}
-      
+
+    - name: Slack Notification
+      uses: rtCamp/action-slack-notify@v2
+      if: always()
+      env:
+        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
+        SLACK_TITLE: 'GitOps 파이프라인 알림'
+        SLACK_COLOR: ${{ job.status == 'success' && 'good' || 'danger' }}
+        SLACK_MESSAGE: |
+          *상태* ${{ job.status=='success' && '성공' || '실패' }}
+          *프로젝트:* ${{ github.repository }}
+          *작업자:* ${{ github.actor }}
+          *메시지:* ${{ github.event.head_commit.message }}
+          *상세보기:* https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          
 
     - name: Update Helm Values
       run: |
