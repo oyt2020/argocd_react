@@ -56,10 +56,14 @@ RUN apk add --no-cache --virtual .build-deps \
 # Nginx VTS 모듈 소스 다운로드 및 컴파일
 RUN mkdir -p /usr/src && \
     cd /usr/src && \
-    curl -L https://github.com/vozlt/nginx-module-vts/archive/refs/tags/v0.2.2.tar.gz -o vts.tar.gz && \
+    curl -fL --proto '=https' --tlsv1.2 \
+      https://github.com/vozlt/nginx-module-vts/archive/refs/tags/v0.2.2.tar.gz \
+      -o vts.tar.gz && \
     tar -zxvf vts.tar.gz && \
     CONFARGS=$(nginx -V 2>&1 | grep "configure arguments:" | sed 's/[^*]*configure arguments: //') && \
-    curl -O http://nginx.org/download/nginx-$NGINX_VERSION.tar.gz && \
+    curl -fL --proto '=https' --tlsv1.2 \
+      https://nginx.org/download/nginx-$NGINX_VERSION.tar.gz \
+      -o nginx.tar.gz && \
     tar -zxvf nginx-$NGINX_VERSION.tar.gz && \
     cd nginx-$NGINX_VERSION && \
     ./configure $CONFARGS --add-module=/usr/src/nginx-module-vts-0.2.2 && \
