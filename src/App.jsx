@@ -91,7 +91,7 @@ function App() {
   return (
     <div className="container">
       <h1>YOLO11 Segmentation 서비스</h1>
-      <h2>sonarqube</h2>
+      <h2>sonarqube, trivy</h2>
       <h3>1.2.kbs</h3>
 
 
