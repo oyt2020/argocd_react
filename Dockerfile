@@ -38,6 +38,8 @@ RUN npm run build
 # 2단계: Nginx + VTS 모듈 컴파일 스테이지
 FROM nginx:1.25.3-alpine as production-stage
 
+RUN apk update && apk upgrade --no-cache
+
 ARG NGINX_VERSION=1.25.3
 
 # 컴파일에 필요한 도구 및 라이브러리 설치
