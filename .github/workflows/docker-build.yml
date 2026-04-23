@@ -52,8 +52,10 @@ jobs:
         ignore-unfixed: true
 
     - name: Docker push
+      env:
+        docker_user: ${{ secrets.DOCKERHUB_USERNAME }}
       run: |
-        docker push ${{ secrets.DOCKERHUB_USERNAME }}/yolo-front:1.2.${{ github.run_number }}
+        docker push $docker_user/yolo-front:1.2.${{ github.run_number }}
       
 
     - name: Update Helm Values
