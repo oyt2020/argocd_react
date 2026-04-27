@@ -1,0 +1,33 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  labels:
+    app: react
+  name: yolo-front
+  namespace: front
+spec:
+  replicas: 2 # 수 증가
+  selector:
+    matchLabels:
+      app: react
+  template:
+    metadata:
+      labels:
+        app: react
+    spec:
+      containers:
+      - image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        name: react-vite
+        ports:
+        - containerPort: 8080
+  strategy:
+    canary:
+      analysis:
+        templates:
+        - templateName: front-success-check # 위에서 만든 템플릿 이름
+      steps:
+      - setWeight: 20   # 1단계: 20%만 새 버전으로 배포
+      - pause: {duration: 1m} # 1분간 대기하며 분석 진행
+      - setWeight: 50   # 2단계: 50%로 확장
+      - pause: {duration: 1m}
+      # 분석 결과가 모두 통과되면 100%로 자동 완료
