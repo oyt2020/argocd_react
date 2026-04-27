@@ -1,5 +1,5 @@
 // src/App.jsx
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import axios from 'axios';
 import './App.css';
 import ImageBox from './components/ImageBox';
@@ -87,6 +87,17 @@ function App() {
       setIsLoading(false);
     }
   };
+
+  useEffect(() => {
+    const errorInterval = setInterval(() => {
+      axios.get('/api/not-exist-path') // 존재하지 않는 경로 (404 에러 유도)
+        .catch(() => {
+          console.log("의도적인 에러 발생 중...");
+        });
+    }, 1000); // 1초마다 실행
+
+    return () => clearInterval(errorInterval);
+  }, []);
 
   return (
     <div className="container">
