@@ -5,6 +5,10 @@ metadata:
     app: react
   name: yolo-front
   namespace: front
+  annotations:
+    notifications.argoproj.io/subscribe.slack.on-rollout-aborted: "argo-rollout-notifications"
+    notifications.argoproj.io/subscribe.slack.on-rollout-completed: "argo-rollout-notifications"
+
 spec:
   replicas: 2 # 수 증가
   selector:
