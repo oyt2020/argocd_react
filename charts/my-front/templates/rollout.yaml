@@ -8,6 +8,7 @@ metadata:
   annotations:
     notifications.argoproj.io/subscribe.on-rollout-aborted.slack: "argo-rollout-notifications"
     notifications.argoproj.io/subscribe.on-rollout-completed.slack: "argo-rollout-notifications"
+    notifications.argoproj.io/subscribe.test.slack: argo-rollout-notifications
 
 spec:
   replicas: 2 # 수 증가
