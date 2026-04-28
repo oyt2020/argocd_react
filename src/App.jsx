@@ -102,7 +102,7 @@ function App() {
   return (
     <div className="container">
       <h1>YOLO11 Segmentation 서비스</h1>
-      <h2>rollout 알림 설정</h2>
+      <h2>rollout 알림 설정+에러 수정</h2>
       <h3>1.2.kbs</h3>
 
 
