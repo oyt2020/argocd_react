@@ -6,8 +6,8 @@ metadata:
   name: yolo-front
   namespace: front
   annotations:
-    notifications.argoproj.io/subscribe.slack.on-rollout-aborted: "argo-rollout-notifications"
-    notifications.argoproj.io/subscribe.slack.on-rollout-completed: "argo-rollout-notifications"
+    notifications.argoproj.io/subscribe.on-rollout-aborted.slack: "argo-rollout-notifications"
+    notifications.argoproj.io/subscribe.on-rollout-completed.slack: "argo-rollout-notifications"
 
 spec:
   replicas: 2 # 수 증가
