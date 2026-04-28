@@ -1,5 +1,5 @@
 image:
   repository: topawa/yolo-front
-  tag: "1.2.35"
+  tag: "1.2.37"
   pullPolicy: IfNotPresent
 
